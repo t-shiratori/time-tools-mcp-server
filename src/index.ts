@@ -18,7 +18,12 @@ server.tool(
 	async () => {
 		const currentDateTime = dayjs().format(DEFAULT_TIME_FORMAT);
 		return {
-			content: [{ type: "text", text: currentDateTime }],
+			content: [
+				{
+					type: "text",
+					text: currentDateTime,
+				},
+			],
 		};
 	},
 );
