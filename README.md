@@ -76,14 +76,14 @@ en
 ## Overview
 - Please perform the following tasks
 - Perform the following tasks and measure the time it takes to perform the tasks.
-- Please follow the time tracker requirements for the measurement method.
+- Please follow the time tracking requirements for the measurement method
 
 ## Tasks
 - Create the src directory
 - Create an empty file in it
-- The name of the file to be created should be index.ts
+- Name the file index.ts
 
-## Time Tracker Requirements
+## Time tracking requirements
 1. retrieve and display the current time before the task starts 2.
 2. retrieve and display the current time after the task is completed 3.
 3. retrieve and display the elapsed time from the start and end time of the task 4. finally display the following table
@@ -101,14 +101,14 @@ jp
 ## 概要
 - 以下のタスクを実行してください
 - タスク実行に要した時間も計測します
-- 計測の方法はタイムトラッカー要件にしたがってください
+- 計測の方法はタイムトラッキング要件にしたがってください
 
 ## タスク
 - src ディレクトリを作成する
 - その中に空のファイルを作成する
 - 作成するファイル名は index.ts とする
 
-## タイムトラッカー要件
+## タイムトラッキング要件
 1. タスク開始前の現在時間を取得して表示する
 2. タスク終了後の現在時間を取得して表示する
 3. タスクの開始時と終了時の時間から経過時間を取得して表示する
