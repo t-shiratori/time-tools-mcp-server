@@ -1,5 +1,11 @@
 # MCP server for time manipulation
 
+A dynamic MCP server management service for time manipulation. 
+
+<a href="https://glama.ai/mcp/servers/@t-shiratori/time-tools-mcp-server">
+  <img width="380" height="200" src="https://glama.ai/mcp/servers/@t-shiratori/time-tools-mcp-server/badge" alt="Time Tools Server MCP server" />
+</a>
+
 ## Prepare mcp server app
 
 ### 1. Install packages
