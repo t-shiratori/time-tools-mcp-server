@@ -93,8 +93,6 @@ en
 |start time|<enter result>| 
 |end time|<enter result>| 
 |elapsed time|<enter result>|
-
-Translated with DeepL.com (free version)
 ```
 
 jp
