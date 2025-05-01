@@ -36,13 +36,33 @@ getDurationDateTime
 
 ## VS Code
 
-.vscode/mcp.json
+### When managed in a project
+
+`.vscode/mcp.json`
+
 ```json
 {
   "servers": {
     "time-tools": {
       "command": "node",
       "args": ["/ABSOLUTE/PATH/TO/PARENT/FOLDER/build/index.js"]
+    }
+  }
+}
+```
+
+### For personal global management
+
+`~/Library/Application Support/Code/User/settings.json`
+
+```json
+{
+  "mcp": {
+    "servers": {
+      "time-tools": {
+        "command": "node",
+        "args": ["/ABSOLUTE/PATH/TO/PARENT/FOLDER/build/index.js"]
+      }
     }
   }
 }
