@@ -1,0 +1,33 @@
+{
+  "name": "time-tools-mcp",
+  "version": "1.0.0",
+  "description": "time tools mcp",
+  "type": "module",
+  "main": "index.js",
+  "engines": {
+    "node": "22.15.0"
+  },
+  "scripts": {
+    "build": "tsc && chmod 755 build/index.js",
+    "start": "node build/index.js",
+    "format": "pnpm biome format --write ./src",
+    "inspect": "npx @modelcontextprotocol/inspector node build/index.js"
+  },
+  "files": [
+    "build"
+  ],
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "packageManager": "pnpm@10.10.0",
+  "dependencies": {
+    "@modelcontextprotocol/sdk": "^1.10.2",
+    "dayjs": "^1.11.13"
+  },
+  "devDependencies": {
+    "@biomejs/biome": "^1.9.4",
+    "@types/node": "^22.15.3",
+    "typescript": "^5.8.3",
+    "zod": "^3.24.3"
+  }
+}
