@@ -39,6 +39,12 @@ server.tool(
 	async ({ from, to, unit = "second" }) => {
 		const fromDateTime = dayjs(from);
 		const toDateTime = dayjs(to);
+		if (!fromDateTime.isValid() || !toDateTime.isValid()) {
+			return {
+				content: [{ type: "text", text: "Invalid format" }],
+				isError: true,
+			};
+		}
 		/**
 		 * {@link https://day.js.org/docs/en/display/difference}
 		 */
