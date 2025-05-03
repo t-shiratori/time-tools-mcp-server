@@ -29,7 +29,7 @@ server.tool(
 );
 
 server.tool(
-	"getDurationDateTime",
+	"getElapsedTime",
 	"Get the difference time between two datetimes (e.g. 2025-01-01 01:01:01 and 2025-01-02 02:02:02)",
 	{
 		from: z.string(),
