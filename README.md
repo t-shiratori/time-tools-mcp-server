@@ -42,7 +42,10 @@ getDurationDateTime
 
 ## VS Code
 
-.vscode/mcp.json
+### When managed in a project
+
+`.vscode/mcp.json`
+
 ```json
 {
   "servers": {
@@ -54,29 +57,48 @@ getDurationDateTime
 }
 ```
 
+### For personal global management
+
+`~/Library/Application Support/Code/User/settings.json`
+
+```json
+{
+  "mcp": {
+    "servers": {
+      "time-tools": {
+        "command": "node",
+        "args": ["/ABSOLUTE/PATH/TO/PARENT/FOLDER/build/index.js"]
+      }
+    }
+  }
+}
+```
+
 ## Example prompt
 
 en
 
 ```md
 ## Overview
-- Please execute the following tasks
-- Also measure the time required to execute the tasks
-- Please follow the Time Tracker requirements for the measurement method
+- Please perform the following tasks
+- Perform the following tasks and measure the time it takes to perform the tasks.
+- Please follow the time tracking requirements for the measurement method
 
 ## Tasks
-- Create a src directory
+- Create the src directory
 - Create an empty file in it
 - Name the file index.ts
 
-## Time Tracker requirements
-1. Get and display the current time before the task starts
-2. Get and display the current time after the task ends
-3. Get and display the elapsed time from the start and end times of the task
-4. Finally, display in the following table format
-| Start time | End time | Elapsed time |
-| ---- | ---- | ---- |
-| <Start time> | <End time> | <Elapsed time> |
+## Time tracking requirements
+1. retrieve and display the current time before the task starts 2.
+2. retrieve and display the current time after the task is completed 3.
+3. retrieve and display the elapsed time from the start and end time of the task 4. finally display the following table
+4. finally display in the following table format 
+|item|record| 
+|:---|:---| 
+|start time|<enter result>| 
+|end time|<enter result>| 
+|elapsed time|<enter result>|
 ```
 
 jp
@@ -85,19 +107,22 @@ jp
 ## 概要
 - 以下のタスクを実行してください
 - タスク実行に要した時間も計測します
-- 計測の方法はタイムトラッカー要件にしたがってください
+- 計測の方法はタイムトラッキング要件にしたがってください
 
 ## タスク
 - src ディレクトリを作成する
 - その中に空のファイルを作成する
 - 作成するファイル名は index.ts とする
 
-## タイムトラッカー要件
+## タイムトラッキング要件
 1. タスク開始前の現在時間を取得して表示する
 2. タスク終了後の現在時間を取得して表示する
 3. タスクの開始時と終了時の時間から経過時間を取得して表示する
 4. 最終的に以下の表形式で表示してください
-| 開始時間 | 終了時間 | 経過時間 |
-| ---- | ---- | ---- |
-| <開始時間> | <終了時間> | <経過時間> |
+|項目|記録|
+|:---|:---|
+|開始時間|<結果を入力>|
+|終了時間|<結果を入力>|
+|経過時間|<結果を入力>|
 ```
+
