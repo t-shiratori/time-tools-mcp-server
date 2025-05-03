@@ -6,6 +6,19 @@ A dynamic MCP server management service for time manipulation.
   <img width="380" height="200" src="https://glama.ai/mcp/servers/@t-shiratori/time-tools-mcp-server/badge" alt="Time Tools Server MCP server" />
 </a>
 
+## MCP Tools
+
+#### getCurrentDateTime
+
+Get the current date and time.（Display in local time zone.）
+```txt
+e.g. 2025-01-01 01:01:01
+```
+
+#### getElapsedTime
+
+Calculate the difference between start and end times.
+
 ## Prepare mcp server app
 
 ### 1. Install packages
@@ -34,11 +47,11 @@ pnpm inspect
 
 getCurrentDateTime
 
-<img width="800" alt="Image" src="https://github.com/user-attachments/assets/f8d711e4-136b-4e09-81fb-f1db17f2b39a" />
+<img width="800" alt="Image" src="https://github.com/user-attachments/assets/6dc71f63-9682-4bc1-accf-e8fcb8f1e8cd" />
 
-getDurationDateTime
+getElapsedTime
 
-<img width="800" alt="Image" src="https://github.com/user-attachments/assets/f243b586-ccec-4e30-bdf2-b19163e9dbce" />
+<img width="800" alt="Image" src="https://github.com/user-attachments/assets/412d6944-7ca9-4af4-bec5-9c654f354de2" />
 
 ## VS Code
 
