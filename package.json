@@ -8,10 +8,11 @@
     "node": "22.15.0"
   },
   "scripts": {
-    "build": "tsc && chmod 755 build/index.js",
+    "build": "pnpm rimraf && tsc && chmod 755 build/index.js",
     "start": "node build/index.js",
     "format": "pnpm biome format --write ./src",
-    "inspect": "pnpm dlx @modelcontextprotocol/inspector node build/index.js"
+    "inspect": "pnpm dlx @modelcontextprotocol/inspector node build/index.js",
+    "rimraf": "node -e 'fs.rmSync(`build`, {recursive:true, force:true})'"
   },
   "files": [
     "build"
