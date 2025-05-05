@@ -38,10 +38,6 @@ pnpm build
 [Inspector - Model Context Protocol](https://modelcontextprotocol.io/docs/tools/inspector)
 
 ```bash
-pnpm start
-```
-
-```bash
 pnpm inspect
 ```
 
