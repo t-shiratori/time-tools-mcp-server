@@ -8,14 +8,14 @@ A dynamic MCP server management service for time manipulation.
 
 ## MCP Tools
 
-#### getCurrentDateTime
+#### get_current_date_time
 
 Get the current date and time.（Display in local time zone.）
 ```txt
 e.g. 2025-01-01 01:01:01
 ```
 
-#### getElapsedTime
+#### get_elapsed_time
 
 Calculate the difference between start and end times.
 
@@ -41,13 +41,13 @@ pnpm build
 pnpm inspect
 ```
 
-getCurrentDateTime
+get_current_date_time
 
-<img width="800" alt="Image" src="https://github.com/user-attachments/assets/6dc71f63-9682-4bc1-accf-e8fcb8f1e8cd" />
+<img width="800" alt="Image" src="https://github.com/user-attachments/assets/0b1e741c-773a-4a46-bc49-d26b4b7f66b9" />
 
-getElapsedTime
+get_elapsed_time
 
-<img width="800" alt="Image" src="https://github.com/user-attachments/assets/412d6944-7ca9-4af4-bec5-9c654f354de2" />
+<img width="800" alt="Image" src="https://github.com/user-attachments/assets/a611efa7-a618-4080-9b16-945b6ecdf990" />
 
 ## VS Code
 

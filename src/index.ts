@@ -13,7 +13,7 @@ const server = new McpServer({
 });
 
 server.tool(
-    "getCurrentDateTime",
+    "get_current_date_time",
     "Get the current date and time (e.g. 2025-01-01 01:01:01)",
     async () => {
         const currentDateTime = dayjs().format(DEFAULT_TIME_FORMAT);
@@ -29,7 +29,7 @@ server.tool(
 );
 
 server.tool(
-    "getElapsedTime",
+    "get_elapsed_time",
     "Get the difference time between two datetimes (e.g. 2025-01-01 01:01:01 and 2025-01-02 02:02:02)",
     {
         from: z.string(),
