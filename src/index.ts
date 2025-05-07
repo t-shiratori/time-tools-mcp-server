@@ -1,7 +1,12 @@
 import { McpServer } from "@modelcontextprotocol/sdk/server/mcp.js";
 import { z } from "zod";
 import dayjs from "dayjs";
+import utc from "dayjs/plugin/utc.js";
+import timezone from "dayjs/plugin/timezone.js";
 import { StdioServerTransport } from "@modelcontextprotocol/sdk/server/stdio.js";
+
+dayjs.extend(utc);
+dayjs.extend(timezone);
 
 const DEFAULT_TIME_FORMAT = "YYYY-MM-DD HH:mm:ss";
 
@@ -12,11 +17,106 @@ const server = new McpServer({
     version: "1.0.0",
 });
 
+const getTZ = (timezon?: string) => {
+    return timezon || dayjs.tz.guess();
+};
+
+server.tool("get_timezone", "Get timezone (e.g. Asia/Tokyo)", async () => {
+    return {
+        content: [
+            {
+                type: "text",
+                text: getTZ(),
+            },
+        ],
+    };
+});
+
+server.tool("get_unixtime", "Get unixtime (e.g. 1746627290)", async () => {
+    const unixTimestamp = dayjs().unix();
+    return {
+        content: [
+            {
+                type: "text",
+                text: String(unixTimestamp),
+            },
+        ],
+    };
+});
+
+server.tool(
+    "convert_unix_to_datetime",
+    "Convert unixtime to datetime time (e.g. 1746627290 to 2025-01-01 01:01:01)",
+    {
+        unixtime: z.number(),
+        timezone: z.string().optional(),
+        isIso: z.boolean().optional(),
+    },
+    async ({ unixtime, timezone, isIso }) => {
+        const currentDateTime = dayjs
+            .unix(unixtime)
+            .tz(getTZ(timezone))
+            .format(isIso ? undefined : DEFAULT_TIME_FORMAT);
+        return {
+            content: [
+                {
+                    type: "text",
+                    text: currentDateTime,
+                },
+            ],
+        };
+    },
+);
+
+server.tool(
+    "convert_datetime_to_unix",
+    "Convert datetime time to unixtime (e.g. 2025-01-01 01:01:01 to 1746627290)",
+    {
+        time: z.string(),
+        timezone: z.string().optional(),
+    },
+    async ({ time, timezone }) => {
+        const unixtime = dayjs(time).tz(getTZ(timezone)).valueOf();
+        return {
+            content: [
+                {
+                    type: "text",
+                    text: String(unixtime),
+                },
+            ],
+        };
+    },
+);
+
 server.tool(
     "get_current_date_time",
     "Get the current date and time (e.g. 2025-01-01 01:01:01)",
-    async () => {
-        const currentDateTime = dayjs().format(DEFAULT_TIME_FORMAT);
+    {
+        timezone: z.string().optional(),
+    },
+    async ({ timezone }) => {
+        const currentDateTime = dayjs()
+            .tz(getTZ(timezone))
+            .format(DEFAULT_TIME_FORMAT);
+        return {
+            content: [
+                {
+                    type: "text",
+                    text: currentDateTime,
+                },
+            ],
+        };
+    },
+);
+
+server.tool(
+    "get_current_date_time_iso",
+    "Get ISO 8601 time. (e.g. 2025-05-07T23:03:27+09:00)",
+    {
+        timezone: z.string().optional(),
+    },
+    async ({ timezone }) => {
+        const currentDateTime = dayjs().tz(getTZ(timezone)).format();
         return {
             content: [
                 {
