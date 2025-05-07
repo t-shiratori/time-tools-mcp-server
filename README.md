@@ -6,7 +6,7 @@ A dynamic MCP server management service for time manipulation.
   <img width="380" height="200" src="https://glama.ai/mcp/servers/@t-shiratori/time-tools-mcp-server/badge" alt="Time Tools Server MCP server" />
 </a>
 
-## MCP Tools Documentation
+## MCP Tools
 
 This server provides several time-related tools via the Model Context Protocol (MCP).
 
