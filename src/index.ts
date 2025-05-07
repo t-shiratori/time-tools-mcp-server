@@ -50,13 +50,13 @@ server.tool(
     {
         unixtime: z.number(),
         timezone: z.string().optional(),
-        isIso: z.boolean().optional(),
+        isISO: z.boolean().optional(),
     },
-    async ({ unixtime, timezone, isIso }) => {
+    async ({ unixtime, timezone, isISO }) => {
         const currentDateTime = dayjs
             .unix(unixtime)
             .tz(getTZ(timezone))
-            .format(isIso ? undefined : DEFAULT_TIME_FORMAT);
+            .format(isISO ? undefined : DEFAULT_TIME_FORMAT);
         return {
             content: [
                 {
