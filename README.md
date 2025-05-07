@@ -1,4 +1,4 @@
-# MCP server for time manipulation
+## MCP server for time manipulation
 
 A dynamic MCP server management service for time manipulation. 
 
@@ -6,18 +6,109 @@ A dynamic MCP server management service for time manipulation.
   <img width="380" height="200" src="https://glama.ai/mcp/servers/@t-shiratori/time-tools-mcp-server/badge" alt="Time Tools Server MCP server" />
 </a>
 
-## MCP Tools
+## MCP Tools Documentation
 
-#### get_current_date_time
+This server provides several time-related tools via the Model Context Protocol (MCP).
 
-Get the current date and time.（Display in local time zone.）
-```txt
-e.g. 2025-01-01 01:01:01
-```
+---
 
-#### get_elapsed_time
+### get_timezone
 
-Calculate the difference between start and end times.
+Get the current timezone of the server.
+
+- **Returns:**  
+  - `text`: The timezone string.  
+    - e.g. `Asia/Tokyo`
+
+---
+
+### get_unixtime
+
+Get the current Unix timestamp (seconds since epoch).
+
+- **Returns:**  
+  - `text`: The Unix timestamp as a string.  
+    - e.g. `1746627290`
+
+---
+
+### convert_unix_to_datetime
+
+Convert a Unix timestamp to a formatted datetime string.
+
+- **Parameters:**
+  - `unixtime` (`number`, required): The Unix timestamp to convert.  
+    - e.g. `1746627290`
+  - `timezone` (`string`, optional): The timezone to use (default: server's timezone).  
+    - e.g. `Asia/Tokyo`
+  - `isISO` (`boolean`, optional): If true, returns ISO 8601 format; otherwise, returns `YYYY-MM-DD HH:mm:ss`.  
+    - e.g. `true`
+
+- **Returns:**  
+  - `text`: The formatted datetime string.  
+    - e.g. `2025-01-01 01:01:01` or `2025-01-01T01:01:01+09:00`
+
+---
+
+### convert_datetime_to_unix
+
+Convert a datetime string to a Unix timestamp (milliseconds since epoch).
+
+- **Parameters:**
+  - `time` (`string`, required): The datetime string to convert.  
+    - e.g. `2025-01-01 01:01:01`
+  - `timezone` (`string`, optional): The timezone to use (default: server's timezone).  
+    - e.g. `Asia/Tokyo`
+
+- **Returns:**  
+  - `text`: The Unix timestamp as a string.  
+    - e.g. `1746627290000`
+
+---
+
+### get_current_date_time
+
+Get the current date and time in `YYYY-MM-DD HH:mm:ss` format.
+
+- **Parameters:**
+  - `timezone` (`string`, optional): The timezone to use (default: server's timezone).  
+    - e.g. `Asia/Tokyo`
+
+- **Returns:**  
+  - `text`: The formatted current date and time.  
+    - e.g. `2025-01-01 01:01:01`
+
+---
+
+### get_current_date_time_iso
+
+Get the current date and time in ISO 8601 format.
+
+- **Parameters:**
+  - `timezone` (`string`, optional): The timezone to use (default: server's timezone).  
+    - e.g. `Asia/Tokyo`
+
+- **Returns:**  
+  - `text`: The ISO 8601 formatted current date and time.  
+    - e.g. `2025-05-07T23:03:27+09:00`
+
+---
+
+### get_elapsed_time
+
+Calculate the difference between two datetime strings.
+
+- **Parameters:**
+  - `from` (`string`, required): The start datetime.  
+    - e.g. `2025-01-01 01:01:01`
+  - `to` (`string`, required): The end datetime.  
+    - e.g. `2025-01-02 02:02:02`
+  - `unit` (`"millisecond" | "second" | "minute" | "hour" | "day" | "week" | "month" | "year"`, optional, default: `"second"`): The unit for the difference.  
+    - e.g. `"hour"`
+
+- **Returns:**  
+  - `text`: The difference between the two datetimes in the specified unit.  
+    - e.g. `3600`
 
 ## Prepare mcp server app
 
