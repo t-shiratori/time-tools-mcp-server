@@ -134,7 +134,19 @@ server.tool(
     {
         from: z.string(),
         to: z.string(),
-        unit: z.enum(["second", "minute", "hour"]).optional().default("second"),
+        unit: z
+            .enum([
+                "millisecond",
+                "second",
+                "minute",
+                "hour",
+                "day",
+                "week",
+                "month",
+                "year",
+            ])
+            .optional()
+            .default("millisecond"),
     },
     async ({ from, to, unit = "second" }) => {
         const fromDateTime = dayjs(from);
