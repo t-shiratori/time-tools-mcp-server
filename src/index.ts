@@ -10,16 +10,16 @@ dayjs.extend(timezone);
 
 const DEFAULT_TIME_FORMAT = "YYYY-MM-DD HH:mm:ss";
 
+const getTZ = (timezon?: string) => {
+    return timezon || dayjs.tz.guess();
+};
+
 // Create an MCP server
-const server = new McpServer({
+export const server = new McpServer({
     name: "TimeTools",
     description: "Tools to help you manage time",
     version: "1.0.0",
 });
-
-const getTZ = (timezon?: string) => {
-    return timezon || dayjs.tz.guess();
-};
 
 server.tool("get_timezone", "Get timezone (e.g. Asia/Tokyo)", async () => {
     return {

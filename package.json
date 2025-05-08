@@ -12,7 +12,8 @@
     "start": "node build/index.js",
     "format": "pnpm biome format --write ./src",
     "inspect": "pnpm dlx @modelcontextprotocol/inspector node build/index.js",
-    "rimraf": "node -e 'fs.rmSync(`build`, {recursive:true, force:true})'"
+    "rimraf": "node -e 'fs.rmSync(`build`, {recursive:true, force:true})'",
+    "test": "vitest"
   },
   "files": [
     "build"
@@ -29,6 +30,7 @@
     "@biomejs/biome": "^1.9.4",
     "@types/node": "^22.15.3",
     "typescript": "^5.8.3",
+    "vitest": "^3.1.3",
     "zod": "^3.24.3"
   }
 }
